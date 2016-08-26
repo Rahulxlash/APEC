@@ -3,34 +3,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table width="100%" border="1" cellspacing="5" cellpadding="5">
+<div width="100%" border="0" cellspacing="5" cellpadding="5">
     <tr>
         <td valign="top" border="0">
-            <p>"महत्वपूर्ण सूचनाएँ:- "</p>
+            <div style="border: 2px solid #000;">
+                <p class="label-warning text-center" style="margin-bottom:15px;">"महत्वपूर्ण सूचनाएँ "</p>
+                <p style="font-size:14px;padding-left:10px;padding-right:10px;">
+                    यूपीएसआईसी अपने समस्त इम्पैनल्ड वेन्डर के माध्यम से मैनपावर चयन हेतु लिये जाने वाले आवेदन पत्र के सम्बन्ध में यह
+                    स्पष्ट करना चाहता है कि आवेदक द्वारा आवेदन के सापेक्ष दिया जा रहा रजिस्ट्रेशन शुल्क इस बात की गारंटी नहीं होगा कि आवेदक
+                    को आवेदन करने के पश्चात रोजगार मिल ही जायेगा। विभिन्न विभागों से प्राप्त रोजगार की उपलब्धता के सापेक्ष मेरिट में चयन के पश्चात ही रोजगार
+                    मिलने की सम्भावना है। रजिस्ट्रेशन शुल्क केवल आवेदन के प्रक्रियागत खर्चों को पूर्ण करने हेतु ही लिया जा रहा है।
+                </p>
+                <br />
+                Helpline No: +91-9452667888 (Monday to Friday 10:00 AM to 6:00 PM Only ) <br /><br />
+            </div>
+            <br />
             <br />
 
-            <p>
-                यूपीएसआईसी अपने समस्त इम्पैनल्ड वेन्डर के माध्यम से मैनपावर चयन हेतु लिये जाने वाले आवेदन पत्र के सम्बन्ध में यह
-                स्पष्ट करना चाहता है कि आवेदक द्वारा आवेदन के सापेक्ष दिया जा रहा रजिस्ट्रेशन शुल्क इस बात की गारंटी नहीं होगा कि आवेदक
-                को आवेदन करने के पश्चात रोजगार मिल ही जायेगा। विभिन्न विभागों से प्राप्त रोजगार की उपलब्धता के सापेक्ष मेरिट में चयन के पश्चात ही रोजगार
-                मिलने की सम्भावना है। रजिस्ट्रेशन शुल्क केवल आवेदन के प्रक्रियागत खर्चों को पूर्ण करने हेतु ही लिया जा रहा है।
-            </p>
-            <br />
-            <br />
-            Helpline No: +91-9452667888 (Monday to Friday 10:00 AM to 6:00 PM Only ) <br /><br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="call-action call-action-boxed call-action-style3 clearfix text-center">
+                @Html.ActionLink("Apply For New Registration", "newRegistration", "Registration", null, new { @class = "btn-system border-btn btn-medium btn-wite" })
+                @Html.ActionLink("Make Payment Against Your Registration", "makePayment", "Registration", null, new { @class = "btn-system border-btn btn-medium" })
+                @Html.ActionLink("Re-Print Application Form", "rePrintForm", "Registration", null, new { @class = "btn-system border-btn btn-medium btn-wite" })
+            </div>
         </td>
     </tr>
     <tr>
         <td class="style2">
             <table border="1" width="100%">
                 <tr>
-                    <td valign="top" class="style1" colspan="5">
-                        पंजीकरण शुल्क का विवरण"
+                    <td valign="top" class="label-info label-info-text" colspan="5">
+                        पंजीकरण शुल्क का विवरण
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="5">
-                        जॉब की किसी एक श्रेणी में पंजीकरण शुल्क का विवरण"
+                    <td colspan="5" class="label-info label-info-text" style="font-size:14px;">
+                        जॉब की किसी एक श्रेणी में पंजीकरण शुल्क का विवरण
                     </td>
                 </tr>
                 <tr bgcolor="#1B9689" style="color: #FFFFFF; line-height: 25px;">
@@ -206,25 +217,12 @@
     </tr>
     <tr>
         <td>
-            <table border="1" width="100%">
-                <tr>
-                    <td>
-                        <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True"
-                                       Font-Size="Medium" NavigateUrl="~/APEC-VaUPSIC.aspx" Target="_blank"
-                                       ForeColor="Blue" BackColor="#FFFFCC" Height="60px" BorderWidth="3px"><br />&nbsp;Apply For New Registration &nbsp;</asp:HyperLink>
-                    </td>
-                    <td>
-                        <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True"
-                                       Font-Size="Medium" NavigateUrl="~/APEC-UPSICDirectPayment.aspx" Target="_blank"
-                                       ForeColor="Blue" BackColor="#FFFFCC" Height="60px" BorderWidth="3px"><br />&nbsp;Make Payment Against Your Registration &nbsp;</asp:HyperLink>
-                    </td>
-                    <td>
-                        <asp:HyperLink ID="HyperLink3" runat="server" Font-Bold="True"
-                                       Font-Size="Medium" NavigateUrl="~/APEC-UPSICPrint.aspx" Target="_blank"
-                                       ForeColor="Blue" BackColor="#FFFFCC" Height="60px" BorderWidth="3px"><br />&nbsp;Re-Print Application Form &nbsp;</asp:HyperLink>
-                    </td>
-                </tr>
-            </table>
+            <div class="call-action call-action-boxed call-action-style3 clearfix text-center">
+                @Html.ActionLink("Apply For New Registration", "newRegistration", "Registration", null, new { @class = "btn-system border-btn btn-medium btn-wite" })
+                @Html.ActionLink("Make Payment Against Your Registration", "makePayment", "Registration", null, new { @class = "btn-system border-btn btn-medium" })
+                @Html.ActionLink("Re-Print Application Form", "rePrintForm", "Registration", null, new { @class = "btn-system border-btn btn-medium btn-wite" })
+            </div>
+
         </td>
     </tr>
-</table>
+</div>
