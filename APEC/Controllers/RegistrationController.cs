@@ -13,5 +13,21 @@ namespace APEC.Controllers
         {
             return View();
         }
+
+        public ActionResult NewRegistration()
+        {
+            return View();
+        }
+
+        public ActionResult MakePayment()
+        {
+            return View();
+        }
+
+        public ActionResult rePrintForm()
+        {
+            return View();
+        }
+
     }
 }

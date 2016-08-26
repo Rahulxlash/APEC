@@ -443,6 +443,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Registration\NewRegistration.cshtml" />
+    <Content Include="Views\Registration\MakePayment.cshtml" />
+    <Content Include="Views\Registration\rePrintForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
