@@ -51,6 +51,10 @@ namespace APEC
                       "~/Content/responsive.css",
                       "~/Content/slicknav.css",
                       "~/Content/style.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Admincss").Include(
+                    "~/Content/bootstrap.css",
+                    "~/Content/site.css"));
         }
     }
 }
