@@ -69,7 +69,7 @@
                                 <a class="active" href="index.html">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">Registration</a>
+                                @Html.ActionLink("Registration","Index","Registration")
                             </li>
                             <li>
                                 <a href="#">Vacancies</a>
@@ -112,55 +112,6 @@
             <!-- End Header ( Logo & Naviagtion ) -->
         </header>
         <!-- Start HomePage Slider -->
-        <section id="home">
-            <!-- Carousel -->
-            <div id="main-slide" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#main-slide" data-slide-to="0" class="active"></li>
-                    <li data-target="#main-slide" data-slide-to="1"></li>
-                    <li data-target="#main-slide" data-slide-to="2"></li>
-                    <li data-target="#main-slide" data-slide-to="3"></li>
-                    <li data-target="#main-slide" data-slide-to="4"></li>
-                    <li data-target="#main-slide" data-slide-to="5"></li>
-                    <li data-target="#main-slide" data-slide-to="6"></li>
-                </ol>
-                <!--/ Indicators end-->
-                <!-- Carousel inner -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img class="img-responsive" src="images/slider/a1.jpg" alt="slider">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/slider/a2.jpg" alt="slider">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/slider/a3.jpg" alt="slider">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/slider/a4.jpg" alt="slider">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/slider/a5.jpg" alt="slider">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/slider/a6.jpg" alt="slider">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/slider/a7.jpg" alt="slider">
-                    </div>
-                </div>
-                <!-- Carousel inner end-->
-                <!-- Controls -->
-                <a class="left carousel-control" href="#main-slide" data-slide="prev">
-                    <span><i class="fa fa-angle-left"></i></span>
-                </a>
-                <a class="right carousel-control" href="#main-slide" data-slide="next">
-                    <span><i class="fa fa-angle-right"></i></span>
-                </a>
-            </div>
-            <!-- /carousel -->
-        </section>
         @RenderBody()
         <footer>
             <div class="container">
