@@ -18,17 +18,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DistrictId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DistrictId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DistrictId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DistrictId }) |
+                @using (Html.BeginForm("Delete", "District", new { area = "Admin", id = item.DistrictId }, FormMethod.Post,new { @class = "myform" }))
+                {
+                    <input type="submit" value="Delete" />
+                }
+            </td>
+        </tr>
+    }
 
 </table>
+<script type="text/javascript">
+    $(function () {
+        $('.myform').submit(function () {
+            return confirm('Are you sure you want to delete this User?');
+        });
+    });
+</script>
