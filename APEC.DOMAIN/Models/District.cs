@@ -8,17 +8,11 @@ using System.Threading.Tasks;
 
 namespace APEC.DOMAIN.Models
 {
-    [Table("clientMaster")]
-    public class Client
+    [Table("District")]
+    public class District
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ClientID { get; set; }
+        public int DistrictId { get; set; }
         public string Name { get; set; }
-        public int DistrictID { get; set; }
-        public string Address { get; set; }
-        public string PhoneNo { get; set; }
-        public string ContactPerson { get; set; }
-
-
     }
 }
