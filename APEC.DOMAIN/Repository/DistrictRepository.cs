@@ -17,7 +17,8 @@ namespace APEC.DOMAIN.Repository
         public DistrictRepository(IDatabaseFactory factory) :
             base(factory)
         {
-
+            
         }
+
     }
 }

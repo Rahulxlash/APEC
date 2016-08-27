@@ -53,6 +53,7 @@
     <Compile Include="DBContext.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\UnitofWork.cs" />
+    <Compile Include="Models\Bills.cs" />
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\District.cs" />

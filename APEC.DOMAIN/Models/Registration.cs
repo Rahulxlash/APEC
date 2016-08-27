@@ -11,74 +11,75 @@ namespace APEC.DOMAIN.Models
     [Table("Registration")]
     public class Registration
     {
-    [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-      public int AutoID { get; set; }
-      public string PREFIX {get; set; }
-      public string SUFFIX {get; set; }
-      public string DISTRICT1 {get; set; }
-      public string DISTRICT2 {get; set; }
-      public string DISTRICT3 {get; set; }
-      public string DISTRICT4 {get; set; }
-      public string DISTRICT5 {get; set; }
-      public string NAME {get; set; }
-      public string FATHERNAME {get; set; }
-      public string CATEGORY {get; set; }
-      public string SEX {get; set; }
-      public string DOB {get; set; }
-      public string ADDRESS {get; set; }
-      public string DISTRICT {get; set; }
-      public string BLOCK {get; set; }
-      public string MOBILE1 {get; set; }
-      public string MOBILE2 {get; set; }
-      public string EMAIL {get; set; }
-      public string VIII {get; set; }
-      public string VIIISUBJECT {get; set; }
-      public string VIIIMM {get; set; }
-      public string VIIIMO {get; set; }
-      public string VIIIPER {get; set; }
-      public string VIIIYEAR {get; set; }
-      public string HS {get; set; }
-      public string HSSUBJECT {get; set; }
-      public string HSMM {get; set; }
-      public string HSMO {get; set; }
-      public string HSPER {get; set; }
-      public string HSYEAR {get; set; }
-      public string IM {get; set; }
-      public string IMSUBJECT {get; set; }
-      public string IMMM {get; set; }
-      public string IMMO {get; set; }
-      public string IMPER {get; set; }
-      public string IMYEAR {get; set; }
-      public string GR {get; set; }
-      public string GRSUBJECT {get; set; }
-      public string GRMM {get; set; }
-      public string GRMO {get; set; }
-      public string GRPER {get; set; }
-      public string GRYEAR {get; set; }
-      public string PG {get; set; }
-      public string PGSUBJECT {get; set; }
-      public string PGMM {get; set; }
-      public string PGMO {get; set; }
-      public string PGPER {get; set; }
-      public string PGYEAR {get; set; }
-      public string OTHER {get; set; }
-      public string OTHERSUBJECT {get; set; }
-      public string OTHERMM {get; set; }
-      public string OTHERMO {get; set; }
-      public string OTHERPER {get; set; }
-      public string OTHERYEAR {get; set; }
-      public string EXPCOMP1 {get; set; }
-      public string EXPDETAIL1 {get; set; }
-      public string EXPTIME1 {get; set; }
-      public string EXPCOMP2 {get; set; }
-      public string EXPDETAIL2 {get; set; }
-      public string EXPTIME2 {get; set; }
-      public string EXPCOMP3 {get; set; }
-      public string EXPDETAIL3 {get; set; }
-      public string EXPTIME3 {get; set; }
-      public string REGDATE {get; set; }
-      public string OTP {get; set; }
-      public string POSTNAME {get; set; }
-      public string TITLE {get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int AutoId { get; set; }
+        public string Prefix { get; set; }
+        public string Suffix { get; set; }
+        public string District1 { get; set; }
+        public string District2 { get; set; }
+        public string District3 { get; set; }
+        public string District4 { get; set; }
+        public string District5 { get; set; }
+        public string Name { get; set; }
+        public string FatherName { get; set; }
+        public string Category { get; set; }
+        public string Sex { get; set; }
+        public string Dob { get; set; }
+        public string Address { get; set; }
+        public string District { get; set; }
+        public string Block { get; set; }
+        public string Mobile1 { get; set; }
+        public string Mobile2 { get; set; }
+        public string Email { get; set; }
+        public string Viii { get; set; }
+        public string ViiiSubject { get; set; }
+        public string ViiiMm { get; set; }
+        public string ViiiMo { get; set; }
+        public string ViiiPer { get; set; }
+        public string ViiiYear { get; set; }
+        public string Hs { get; set; }
+        public string HsSubject { get; set; }
+        public string Hsmm { get; set; }
+        public string Hsmo { get; set; }
+        public string Hsper { get; set; }
+        public string Hsyear { get; set; }
+        public string Im { get; set; }
+        public string ImSubject { get; set; }
+        public string Immm { get; set; }
+        public string Immo { get; set; }
+        public string ImPer { get; set; }
+        public string ImYear { get; set; }
+        public string Gr { get; set; }
+        public string GrSubject { get; set; }
+        public string GrMm { get; set; }
+        public string GrMo { get; set; }
+        public string GrPer { get; set; }
+        public string GrYear { get; set; }
+        public string Pg { get; set; }
+        public string PgSubject { get; set; }
+        public string PgMm { get; set; }
+        public string PgMo { get; set; }
+        public string PgPer { get; set; }
+        public string PgYear { get; set; }
+        public string Other { get; set; }
+        public string OtherSubject { get; set; }
+        public string OtherMm { get; set; }
+        public string OtherMo { get; set; }
+        public string OtherPer { get; set; }
+        public string OtherYear { get; set; }
+        public string ExpcOmp1 { get; set; }
+        public string ExpDetail1 { get; set; }
+        public string ExpTime1 { get; set; }
+        public string ExpComp2 { get; set; }
+        public string ExpDetail2 { get; set; }
+        public string ExpTime2 { get; set; }
+        public string ExpComp3 { get; set; }
+        public string ExpDetail3 { get; set; }
+        public string Exptime3 { get; set; }
+        public string RegDate { get; set; }
+        public string Otp { get; set; }
+        public string PostName { get; set; }
+        public string Title { get; set; }
+
     }
 }

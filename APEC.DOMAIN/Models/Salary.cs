@@ -27,7 +27,7 @@ namespace APEC.DOMAIN.Models
     [Table("PayRoll")]
     public class Payroll
     {
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PayRollID { get; set; }
 
         public int EmployeeID { get; set; }
@@ -67,25 +67,19 @@ namespace APEC.DOMAIN.Models
 
         public int Year { get; set; }
 
-        public int TotalDays { get; set; }
+        public int PFEY { get; set; }
 
-        public int PayableDays { get; set; }
+        public int PEEY { get; set; }
 
-        public int AbsentDays { get; set; }
+        public int ESIEY { get; set; }
 
-        public double GrossSalary { get; set; }
+        public bool PFPaid { get; set; }
 
-        public double NetSalary { get; set; }
+        public int PFTransactionId { get; set; }
 
-        public double DeductionAmount { get; set; }
+        public bool ESIPaid { get; set; }
 
-        public double Credited { get; set; }
-
-        public long PFTransID { get; set; }
-
-        public long ESTransID { get; set; }
-
-        public string ApprovedBy { get; set; }
+        public int ESITransactionId { get; set; }
 
     }
 }
