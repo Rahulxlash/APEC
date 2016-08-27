@@ -186,6 +186,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlockController.cs" />
     <Compile Include="Areas\Admin\Controllers\DistrictController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Bootstrapper.cs" />
@@ -417,6 +418,7 @@
     <Content Include="Areas\Admin\Views\District\Index.cshtml" />
     <Content Include="Areas\Admin\Views\District\Create.cshtml" />
     <Content Include="Areas\Admin\Views\District\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Block\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\count-to.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

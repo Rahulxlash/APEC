@@ -12,11 +12,13 @@ namespace APEC.Areas.Admin.Controllers
     public class DistrictController : Controller
     {
         private IDistrictRepository _districtRepo;
+        private IBlockRepository _blockRepository;
         private IUnitofWork UnitOfWork;
 
-        public DistrictController(IDistrictRepository districtRepo, IUnitofWork unitOfWork)
+        public DistrictController(IDistrictRepository districtRepo, IBlockRepository blockRepository, IUnitofWork unitOfWork)
         {
             _districtRepo = districtRepo;
+            _blockRepository = blockRepository;
             UnitOfWork = unitOfWork;
         }
         // GET: Admin/District
@@ -26,13 +28,6 @@ namespace APEC.Areas.Admin.Controllers
             return View(districts);
         }
 
-        // GET: Admin/District/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Admin/District/Create
         public ActionResult Create()
         {
             return View();
@@ -87,7 +82,7 @@ namespace APEC.Areas.Admin.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                
                 var obj = _districtRepo.GetByID(id);
                 _districtRepo.Delete(obj);
                 UnitOfWork.SaveChanges();

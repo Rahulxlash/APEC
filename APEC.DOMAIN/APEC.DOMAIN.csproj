@@ -66,6 +66,7 @@
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AbstractRepository.cs" />
+    <Compile Include="Repository\BlockRepository.cs" />
     <Compile Include="Repository\DistrictRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
