@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc4;
 using APEC.DOMAIN.Repository;
 using APEC.DOMAIN.Infrastructure;
+using APEC.Controllers;
 
 namespace APEC
 {
@@ -20,8 +21,12 @@ namespace APEC
     private static IUnityContainer BuildUnityContainer()
     {
       var container = new UnityContainer();
-      container.RegisterType<IDatabaseFactory, DatabaseFactory>();
-      container.RegisterType<IDistrictRepository, DistrictRepository>();
+      container.RegisterType<IUnitofWork, UnitofWork>(new PerThreadLifetimeManager());
+      container.RegisterType<IDatabaseFactory, DatabaseFactory>(new PerThreadLifetimeManager());
+      container.RegisterType<IDistrictRepository, DistrictRepository>(new PerThreadLifetimeManager());
+
+      //container.RegisterType<AccountController>(new InjectionConstructor());
+      //container.RegisterType<ManageController>(new InjectionConstructor());
       RegisterTypes(container);
 
       return container;

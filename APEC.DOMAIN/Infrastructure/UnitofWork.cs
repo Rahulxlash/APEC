@@ -31,7 +31,7 @@ namespace APEC.DOMAIN.Infrastructure
 
         public void SaveChanges()
         {
-            dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
 
     }

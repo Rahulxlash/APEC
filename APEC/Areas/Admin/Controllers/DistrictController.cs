@@ -1,4 +1,6 @@
-﻿using APEC.DOMAIN.Repository;
+﻿using APEC.DOMAIN.Infrastructure;
+using APEC.DOMAIN.Models;
+using APEC.DOMAIN.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,12 @@ namespace APEC.Areas.Admin.Controllers
     public class DistrictController : Controller
     {
         private IDistrictRepository _districtRepo;
+        private IUnitofWork UnitOfWork;
 
-        public DistrictController(IDistrictRepository districtRepo)
+        public DistrictController(IDistrictRepository districtRepo, IUnitofWork unitOfWork)
         {
             _districtRepo = districtRepo;
+            UnitOfWork = unitOfWork;
         }
         // GET: Admin/District
         public ActionResult Index()
@@ -36,12 +40,13 @@ namespace APEC.Areas.Admin.Controllers
 
         // POST: Admin/District/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(District district)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                _districtRepo.Add(district);
+                UnitOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -53,7 +58,8 @@ namespace APEC.Areas.Admin.Controllers
         // GET: Admin/District/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var obj = _districtRepo.GetByID(id);
+            return View(obj);
         }
 
         // POST: Admin/District/Edit/5
@@ -63,7 +69,10 @@ namespace APEC.Areas.Admin.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                District district = new District();
+                TryUpdateModel(district);
+                _districtRepo.Update(district);
+                UnitOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -85,7 +94,7 @@ namespace APEC.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                UnitOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

@@ -21,7 +21,7 @@ namespace APEC.DOMAIN.Models
       public string DISTRICT4 {get; set; }
       public string DISTRICT5 {get; set; }
       public string NAME {get; set; }
-      public string FATHER NAME {get; set; }
+      public string FATHERNAME {get; set; }
       public string CATEGORY {get; set; }
       public string SEX {get; set; }
       public string DOB {get; set; }
@@ -76,9 +76,9 @@ namespace APEC.DOMAIN.Models
       public string EXPCOMP3 {get; set; }
       public string EXPDETAIL3 {get; set; }
       public string EXPTIME3 {get; set; }
-      public string REG DATE {get; set; }
+      public string REGDATE {get; set; }
       public string OTP {get; set; }
-      public string POST NAME {get; set; }
+      public string POSTNAME {get; set; }
       public string TITLE {get; set; }
     }
 }

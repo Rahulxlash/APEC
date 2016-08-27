@@ -77,7 +77,7 @@ namespace APEC.DOMAIN.Models
 
         public double NetSalary { get; set; }
 
-        public double Deduction { get; set; }
+        public double DeductionAmount { get; set; }
 
         public double Credited { get; set; }
 
