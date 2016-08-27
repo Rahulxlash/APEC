@@ -25,8 +25,8 @@ namespace APEC
       container.RegisterType<IDatabaseFactory, DatabaseFactory>(new PerThreadLifetimeManager());
       container.RegisterType<IDistrictRepository, DistrictRepository>(new PerThreadLifetimeManager());
 
-      //container.RegisterType<AccountController>(new InjectionConstructor());
-      //container.RegisterType<ManageController>(new InjectionConstructor());
+      container.RegisterType<AccountController>(new InjectionConstructor());
+      container.RegisterType<ManageController>(new InjectionConstructor());
       RegisterTypes(container);
 
       return container;
