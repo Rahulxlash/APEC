@@ -19,6 +19,7 @@ namespace APEC.Areas.Admin.Controllers
             _districtRepo = districtRepo;
             UnitOfWork = unitOfWork;
         }
+
         // GET: Admin/District
         public ActionResult Index()
         {
