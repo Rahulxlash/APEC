@@ -12,15 +12,15 @@ namespace APEC.DOMAIN.Models
     public class Job
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int jobID{ get; set; }
+        public int JobID { get; set; }
 
-        public int clientID { get; set; }
+        public int ClientID { get; set; }
 
-        public string jobTitle { get; set; }
+        public string JobTitle { get; set; }
 
         public string Description { get; set; }
 
-        public int daysInMonth { get; set; }
+        public int DaysInMonth { get; set; }
 
     }
 }

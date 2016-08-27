@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace APEC.DOMAIN.Models
 {
     [Table("clientMaster")]
-    public class clientMaster
+    public class Client
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int clientID { get; set; }
+        public int ClientID { get; set; }
         public string Name { get; set; }
-        public int districtID { get; set; }
+        public int DistrictID { get; set; }
         public string Address { get; set; }
         public string PhoneNo { get; set; }
         public string ContactPerson { get; set; }

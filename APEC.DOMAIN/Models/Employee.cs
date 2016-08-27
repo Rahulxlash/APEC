@@ -12,13 +12,13 @@ namespace APEC.DOMAIN.Models
     public class Employee
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int employeeID { get; set; }
+        public int EmployeeID { get; set; }
 
-        public string registrationNumber { get; set; }
+        public string RegistrationNumber { get; set; }
 
-        public int clientID { get; set; }
+        public int ClientID { get; set; }
 
-        public double salary { get; set; }
+        public double Salary { get; set; }
 
         public double PFAmount { get; set; }
 
@@ -26,7 +26,7 @@ namespace APEC.DOMAIN.Models
 
         public string PANNumber { get; set; }
 
-        public string aadhaarID{ get; set; }
+        public string AadhaarID { get; set; }
 
     }
 }
