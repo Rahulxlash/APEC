@@ -81,12 +81,6 @@ namespace APEC.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/District/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: Admin/District/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
@@ -94,6 +88,8 @@ namespace APEC.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
+                var obj = _districtRepo.GetByID(id);
+                _districtRepo.Delete(obj);
                 UnitOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
