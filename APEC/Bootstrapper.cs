@@ -26,7 +26,7 @@ namespace APEC
       container.RegisterType<IDatabaseFactory, DatabaseFactory>(new PerRequestLifetimeManager());
       container.RegisterType<IDistrictRepository, DistrictRepository>(new PerRequestLifetimeManager());
       container.RegisterType<IClientRepository, ClientRepository>(new PerRequestLifetimeManager());
-
+      container.RegisterType<IBlockRepository, BlockRepository>(new PerRequestLifetimeManager());
 
       container.RegisterType<AccountController>(new InjectionConstructor());
       container.RegisterType<ManageController>(new InjectionConstructor());
