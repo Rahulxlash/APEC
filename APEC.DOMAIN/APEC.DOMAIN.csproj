@@ -51,13 +51,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBContext.cs" />
-    <Compile Include="Models\clientMaster.cs" />
+    <Compile Include="Infrastructure\DatabaseFactory.cs" />
+    <Compile Include="Infrastructure\UnitofWork.cs" />
+    <Compile Include="Models\Block.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\District.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Masters.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\TestDomain.cs" />
+    <Compile Include="Repository\AbstractRepository.cs" />
+    <Compile Include="Repository\DistrictRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

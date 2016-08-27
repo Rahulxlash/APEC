@@ -1,4 +1,4 @@
-﻿using APEC.DOMAIN.Repository;
+﻿using APEC.DOMAIN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +17,8 @@ namespace APEC.Controllers
 
         public ActionResult Test()
         {
-            TestDomain db = new TestDomain();
-            db.TestMethod();
+            //TestDomain db = new TestDomain();
+            //db.TestMethod();
             return View();
         }
         public ActionResult About()
