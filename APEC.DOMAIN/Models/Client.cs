@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 
 namespace APEC.DOMAIN.Models
 {
-    [Table("clientMaster")]
     public class Client
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClientId { get; set; }
         public string Name { get; set; }
         public int DistrictId { get; set; }
-        public string Address { get; set; }
+        public string Department{ get; set; }
+        public string ReportingTo{ get; set; }
+        public string OrderNo{ get; set; }
         public string PhoneNo { get; set; }
-        public string ContactPerson { get; set; }
+        public string Address { get; set; }
 
         [ForeignKey("DistrictId")]
         public virtual District District { get; set; }

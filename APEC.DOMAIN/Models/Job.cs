@@ -22,5 +22,23 @@ namespace APEC.DOMAIN.Models
 
         public int DaysInMonth { get; set; }
 
+        public DateTime ApplicationLastDate { get; set; }
+
+        public bool ResultDeclared { get; set; }
+
+        public string InfoLink { get; set; }
+
+        public int NumberofPosts { get; set; }
+
+        public int ProposedSalary { get; set; }
+
+        public int DistrictId { get; set; }
+
+        [ForeignKey("DistrictId")]
+        public District District { get; set; }
+
+        [ForeignKey("ClientId")]
+        public Client Client { get; set; }
+
     }
 }
