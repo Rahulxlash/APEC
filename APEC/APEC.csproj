@@ -522,6 +522,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Home\Jobs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -559,7 +560,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62675</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:19023/</IISUrl>
+          <IISUrl>http://localhost:62675/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
