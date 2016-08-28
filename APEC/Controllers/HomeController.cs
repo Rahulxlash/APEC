@@ -1,4 +1,5 @@
 ﻿using APEC.DOMAIN;
+using APEC.DOMAIN.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,24 @@ namespace APEC.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private IJobRepository _jobRepository;
+
+        public HomeController(IJobRepository jobRepository)
+        {
+            _jobRepository = jobRepository;
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Test()
+        public ActionResult Jobs()
         {
-            //TestDomain db = new TestDomain();
-            //db.TestMethod();
-            return View();
+            var jobs = _jobRepository.GetAll();
+            return View(jobs);
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

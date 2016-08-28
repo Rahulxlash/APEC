@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default btn-success" })
 </p>
-<table class="table">
+<table class="table" id="jobs">
     <tr>
         <th>
             Client
@@ -89,6 +89,10 @@
         $('.deleteForm').submit(function () {
             return confirm('Are you sure you want to delete this Job?');
         }
-        )});
+        )
+    });
+    $(document).ready(function () {
+        $('#jobs').DataTable();
+    });
     </script>
 }

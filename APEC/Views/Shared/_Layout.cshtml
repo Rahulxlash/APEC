@@ -58,21 +58,21 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.html">
-                            <img alt="" src="~/images/logo.jpg" style="height:60px;">
-                            Avani Paridhi Energy and Communications (P) Ltd.
+                        <a class="navbar-brand" href="index.html" style="display:inline-flex;">
+                            <img alt="" src="~/images/logo.jpg" style="height:50px;">
+                            <div style="padding-top: 9px;padding-left: 20px;">Avani Paridhi Energy and Communications (P) Ltd.</div>
                         </a>
                     </div>
                     <div class="navbar-collapse collapse" style="height: 79px !important;">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                @Html.ActionLink("Home", "Index", "Home", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "active" : "") })
+                                @Html.ActionLink("Home", "Index", "Home", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "I ndex" ? "active" : "") })
                             </li>
                             <li>
                                 @Html.ActionLink("Registration", "Index", "Registration", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Registration" ? "active" : "") })
                             </li>
                             <li>
-                                @Html.ActionLink("Vacancies", "Index", "Vacancies", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Vacancies" ? "active" : "") })
+                                @Html.ActionLink("Vacancies", "Jobs", "Home", null, new { @class = (ViewContext.RouteData.Values["action"].ToString() == "Jobs" ? "active" : "") })
                             </li>
                             <li>
                                 @Html.ActionLink("Downloads", "Index", "Downloads", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Downloads" ? "active" : "") })
@@ -81,7 +81,7 @@
                                 @Html.ActionLink("Clients", "Index", "Clients", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Clients" ? "active" : "") })
                             </li>
                             <li>
-                                @Html.ActionLink("News & Gallery", "Index", "NewsGallery", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Vacancies" ? "active" : "") })
+                                @Html.ActionLink("News & Gallery", "Index", "NewsGallery", null, new { @class = (ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "News" ? "active" : "") })
                             </li>
                         </ul>
                     </div>
@@ -162,7 +162,7 @@
                 <div class="copyright-section">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>&copy; 2014 Margo - All Rights Reserved <a href="http://avaniparidhi.com">APEC</a> </p>
+                            <p>&copy; 2016 APEC - All Rights Reserved <a href="http://avaniparidhi.com">APEC</a> </p>
                         </div>
                         <div class="col-md-6">
                             <ul class="footer-nav">
