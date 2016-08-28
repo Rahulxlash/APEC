@@ -39,6 +39,7 @@ namespace APEC
                 "~/Scripts/respond.js",
                 "~/Scripts/count-to.js",
                 "~/Scripts/script.js"
+               
                 ));
 
 
@@ -50,7 +51,8 @@ namespace APEC
                       "~/Content/font-awesome.min.css",
                       "~/Content/responsive.css",
                       "~/Content/slicknav.css",
-                      "~/Content/style.css"));
+                      "~/Content/style.css"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/Admincss").Include(
                     "~/Content/bootstrap.css",
