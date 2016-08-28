@@ -8,37 +8,38 @@ using System.Threading.Tasks;
 
 namespace APEC.DOMAIN.Models
 {
-    [Table("Jobs")]
     public class Job
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int JobID { get; set; }
+        public int JobId { get; set; }
 
-        public int ClientID { get; set; }
-
+        public int ClientId { get; set; }
+        [Display(Name = "Job Title")]
         public string JobTitle { get; set; }
 
         public string Description { get; set; }
 
+        [Display(Name = "Days")]
         public int DaysInMonth { get; set; }
 
+        [Display(Name = "Last Date")]
         public DateTime ApplicationLastDate { get; set; }
 
         public bool ResultDeclared { get; set; }
-
+        [Display(Name = "Infomation URL")]
         public string InfoLink { get; set; }
-
+        [Display(Name = "Posts")]
         public int NumberofPosts { get; set; }
-
-        public int ProposedSalary { get; set; }
+        [Display(Name = "Proposed Salary")]
+        public decimal ProposedSalary { get; set; }
 
         public int DistrictId { get; set; }
 
         [ForeignKey("DistrictId")]
-        public District District { get; set; }
+        public virtual District District { get; set; }
 
         [ForeignKey("ClientId")]
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
 
     }
 }

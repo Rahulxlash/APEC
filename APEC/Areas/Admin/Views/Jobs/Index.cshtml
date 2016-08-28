@@ -1,0 +1,94 @@
+﻿@model IEnumerable<APEC.DOMAIN.Models.Job>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Jobs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Client
+        </th>
+        <th>
+           District
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaysInMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationLastDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberofPosts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposedSalary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.District.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaysInMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationLastDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InfoLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberofPosts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposedSalary)
+        </td>
+        <td style="display:inline-flex;">
+            @Html.ActionLink("Edit", "Edit", new { id = item.DistrictId }, new { @class = "btn btn-default btn-info" }) &nbsp;
+            @using (Html.BeginForm("Delete", "Jobs", new { area = "Admin", id = item.JobId }, FormMethod.Post, new { @class = "deleteForm" }))
+            {
+                <input type="submit" value="Delete" class="btn btn-default btn-warning" />
+            }
+        </td>
+
+    </tr>
+}
+
+</table>
+@section Scripts {
+    <script type="text/javascript">
+    $(function() {
+        $('.deleteForm').submit(function () {
+            return confirm('Are you sure you want to delete this Job?');
+        }
+        )});
+    </script>
+}

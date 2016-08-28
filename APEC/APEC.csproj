@@ -207,6 +207,7 @@
     <Compile Include="Areas\Admin\Controllers\DistrictController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\IISHandler1.cs" />
+    <Compile Include="Areas\Admin\Controllers\JobsController.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -438,6 +439,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\Admin\Views\Block\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Block\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Jobs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Jobs\Create.cshtml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />

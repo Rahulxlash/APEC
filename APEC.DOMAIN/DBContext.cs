@@ -18,5 +18,6 @@ namespace APEC.DOMAIN
         public virtual DbSet<Client> Clients{get;set;}
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<Block> Blocks { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
     }
 }
