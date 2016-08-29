@@ -8,71 +8,88 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
 </p>
-<table class=" table table-striped table-bordered" id="example" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.District.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Department)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReportingTo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNo)
-            </th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.District.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Department)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReportingTo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNo)
-                </td>
-                <td style="display:inline-flex;">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }, new { @class = "btn btn-default btn-info" }) &nbsp;
-                    @using (Html.BeginForm("Delete", "Client", new { area = "Admin", id = item.ClientId }, FormMethod.Post, new { @class = "deleteForm" }))
-                    {
-                        <input type="submit" value="Delete" class="btn btn-default btn-warning" />
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+
+        Client List
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-xs pull-right" })
+
+       
+    </div>
+    <div class="panel-body">
+        <table class=" table table-striped table-bordered" id="example" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.District.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Department)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReportingTo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNo)
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.District.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Department)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReportingTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNo)
+                        </td>
+                        <td style="display:inline-flex;">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }, new { @class = "btn btn-default btn-info" }) &nbsp;
+                            @using (Html.BeginForm("Delete", "Client", new { area = "Admin", id = item.ClientId }, FormMethod.Post, new { @class = "deleteForm" }))
+                            {
+                                <input type="submit" value="Delete" class="btn btn-default btn-warning" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        Panel Footer
+    </div>
+</div>
+
+
+
 @section Scripts {
     <script type="text/javascript">
         $(function () {
