@@ -1,5 +1,6 @@
 ﻿using APEC.DOMAIN;
 using APEC.DOMAIN.Repository;
+using APEC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,14 @@ namespace APEC.Controllers
 
         public ActionResult Jobs()
         {
-            var jobs = _jobRepository.GetAll();
-            return View(jobs);
+            VacanciesViewModel model = new VacanciesViewModel();
+
+            var jobs = _jobRepository.GetMany(j => j.ApplicationLastDate >= DateTime.Now);
+            var expiredJobs = _jobRepository.GetMany(j => j.ApplicationLastDate < DateTime.Now);
+            model.CurrentJobs = jobs.ToList();
+            model.ExpiredJobs = expiredJobs.ToList();
+
+            return View(model);
         }
 
         public ActionResult About()
