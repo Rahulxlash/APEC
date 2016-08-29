@@ -220,6 +220,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\VacanciesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -443,6 +444,7 @@
     <Content Include="Areas\Admin\Views\Jobs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Jobs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Client\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Jobs\Edit.cshtml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />

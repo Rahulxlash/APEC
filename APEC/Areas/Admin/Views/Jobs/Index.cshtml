@@ -72,7 +72,7 @@
             @Html.DisplayFor(modelItem => item.ProposedSalary)
         </td>
         <td style="display:inline-flex;">
-            @Html.ActionLink("Edit", "Edit", new { id = item.DistrictId }, new { @class = "btn btn-default btn-info" }) &nbsp;
+            @Html.ActionLink("Edit", "Edit", new { id = item.JobId }, new { @class = "btn btn-default btn-info" }) &nbsp;
             @using (Html.BeginForm("Delete", "Jobs", new { area = "Admin", id = item.JobId }, FormMethod.Post, new { @class = "deleteForm" }))
             {
                 <input type="submit" value="Delete" class="btn btn-default btn-warning" />
