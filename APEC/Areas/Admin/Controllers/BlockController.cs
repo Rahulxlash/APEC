@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace APEC.Areas.Admin.Controllers
 {
+    [Authorize]
     public class BlockController : Controller
     {
         private IBlockRepository _blockRepository;

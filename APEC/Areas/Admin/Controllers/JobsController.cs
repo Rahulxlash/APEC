@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace APEC.Areas.Admin.Controllers
 {
+     [Authorize]
     public class JobsController : Controller
     {
         private IJobRepository _jobRepository;
@@ -63,11 +64,13 @@ namespace APEC.Areas.Admin.Controllers
         // GET: Admin/Jobs/Edit/5
         public ActionResult Edit(int id)
         {
-            var _districts = _districtRepository.GetAll();
-            ViewBag.DistrictId = new SelectList(_districts, "DistrictId", "Name");
-            var _clients = _clientRepository.GetAll();
-            ViewBag.ClientId = new SelectList(_clients, "CLientId", "Name");
             var obj = _jobRepository.GetByID(id);
+
+            var _districts = _districtRepository.GetAll();
+            ViewBag.Districts = new SelectList(_districts, "DistrictId", "Name", obj.DistrictId);
+            var _clients = _clientRepository.GetAll();
+            ViewBag.Clients = new SelectList(_clients, "ClientId", "Name",obj.ClientId);
+            
 
             return View(obj);
         }

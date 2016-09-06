@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace APEC.Areas.Admin.Controllers
 {
+     [Authorize]
     public class DistrictController : Controller
     {
         private IDistrictRepository _districtRepo;

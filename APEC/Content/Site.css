@@ -46,3 +46,6 @@ textarea {
 .service-box {
     padding: 10px;
 }
+td, th {
+    padding: 3px;
+}

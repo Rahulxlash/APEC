@@ -206,7 +206,6 @@
     <Compile Include="Areas\Admin\Controllers\ClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\DistrictController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\IISHandler1.cs" />
     <Compile Include="Areas\Admin\Controllers\JobsController.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />

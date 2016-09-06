@@ -1,0 +1,58 @@
+﻿@model APEC.Models.VacanciesViewModel
+
+@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-8" style="margin-top:40px;margin-left:30px;margin-bottom:200px;">
+    <h4 class="classic-title"><span>Current Openings</span></h4>
+
+    <div class="row" style="margin:20px;">
+        @foreach (var item in Model.CurrentJobs)
+        {
+            <div class="col-md-6 service-box service-icon-left-more">
+                <div class="service-icon">
+                    <i class="fa fa-users icon-medium"></i>
+                </div>
+                <div class="service-content">
+                    <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                    <p><b>Posts:</b>@Html.DisplayFor(modelItem => item.NumberofPosts)</p>
+                    <p><b>Last date for Application:</b> @Html.DisplayFor(modelItem => item.ApplicationLastDate)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    @if (item.InfoLink != null)
+                    {
+                       
+                   <a href="@item.InfoLink" target="_blank">More Info...</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <h4 class="classic-title"><span>Expired Jobs</span></h4>
+
+    <div class="row" style="margin:20px;">
+        @foreach (var item in Model.ExpiredJobs)
+        {
+            <div class="col-md-6 service-box service-icon-left-more">
+                <div class="service-icon">
+                    <i class="fa fa-users icon-medium"></i>
+                </div>
+                <div class="service-content">
+                    <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                    <p><b>Posts:</b>@Html.DisplayFor(modelItem => item.NumberofPosts)</p>
+                    <p><b>Last date for Application:</b> @Html.DisplayFor(modelItem => item.ApplicationLastDate)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    @if (item.InfoLink != null)
+                    {
+
+                        <a href="@item.InfoLink" target="_blank">More Info...</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<table class="table">
+    <tr></tr>
+</table>

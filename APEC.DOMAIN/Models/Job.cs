@@ -14,6 +14,7 @@ namespace APEC.DOMAIN.Models
         public int JobId { get; set; }
 
         public int ClientId { get; set; }
+
         [Display(Name = "Job Title")]
         public string JobTitle { get; set; }
 
