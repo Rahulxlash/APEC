@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,18 @@ namespace APEC.DOMAIN.Infrastructure
         APECDBContext Get();
     }
 
-    public class DatabaseFactory:IDisposable, IDatabaseFactory
+    public class DatabaseFactory : IDisposable, IDatabaseFactory
     {
         private APECDBContext dataContext;
 
         public APECDBContext Get()
         {
-            return dataContext ?? (dataContext = new APECDBContext());
+            if (dataContext == null)
+            {
+                dataContext = new APECDBContext();
+                dataContext.Database.Log = msg => Debug.WriteLine(msg);
+            }
+            return dataContext;
         }
 
         public void Dispose()

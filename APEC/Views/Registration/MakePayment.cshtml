@@ -1,8 +1,242 @@
-﻿
+﻿@model APEC.Models.RegistrationViewModel
+
 @{
     ViewBag.Title = "MakePayment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MakePayment</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Raw(Model.Trax)
+    <p style="font-size: 24px;font-weight: 600;text-align: center;margin-top: 25px;">Registration Fee Payment</p>
+    @*PAYMENT GATEWAY*@
+    <input type="hidden" id="key" name="key" />
+    <input type="hidden" id="hash" name="hash" />
+    <input type="hidden" id="txnid" name="txnid" />
+    <input type="hidden" id="enforce_paymethod" name="enforce_paymethod" />
+    @*PAYMENT GATEWAY*@
+    <table style="width: 80%; margin-left:10%; margin-top:25px; border-width: 1px; border-color: #666; border-style: solid" cellpadding="10" border="2">
+        <tr>
+            <td colspan="3" bgcolor="#999999">
+                <asp:label id="Label12" text="Registration Fee Calculation" font-bold="True" font-italic="True" font-size="Large" forecolor="#CC0000" />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td width="200px" style="font-size: large; font-weight: bold;">Registration No:</td>
+            <td>
+                @Html.EditorFor(model => model.ApplicationNumber, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
 
+            </td>
+            <td>
+                <asp:label id="Label69" font-bold="True" font-size="Medium" forecolor="Green" text="कृपया अपना रजिस्ट्रेशन न0 भविष्य की सारी कार्यवाही हेतु नोट कर लें।"></asp:label>
+            </td>
+        </tr>
+        <tr>
+            <td width="200px" style="font-size: large; font-weight: bold;">Name:</td>
+            <td>
+                @Html.EditorFor(model => model.Name, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="200px" style="font-size: large; font-weight: bold;">Email:</td>
+            <td>
+                @Html.EditorFor(model => model.Email, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="200px" style="font-size: large; font-weight: bold;">Mobile:</td>
+            <td>
+                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { style = "width:250px;" } })
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="200px" style="font-size: large; font-weight: bold;">Caste Category:</td>
+            <td class="style10">
+                @Html.EditorFor(model => model.Category, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+            </td>
+            <td align="right">
+                @*<asp:TextBox ID="TxtRegCount"   Enabled="False" Font-Bold="True" Font-Size="Medium" ForeColor="#0066FF" MaxLength="50" Width="200px" Height="30px" />*@
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="font-size: large; font-weight: bold;" bgcolor="#999999">TECHNICAL JOB CATEGORY</td>
+        </tr>
+        <tr>
+            <td>
+                Category-I
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.TechCat1, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the following posts in this category:<br />
+                • Scientist, • Researcher, • Highly Qualified &amp; Experienced Computer
+                Professionals, • Highly Qualified &amp; Experienced Marketing Professionals, •
+                Senior Doctors, • And Other Highly Qualified &amp; Experienced Posts<br />
+                (e.g. Salary >= 40000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category-II
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.TechCat2, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the following posts in this category:<br />
+                • Assistant Scientist, • Assistant Researcher, • Assistant Computer
+                Professionals, • Assistant Marketing Professionals, • Assistant Doctors, • Block
+                Technology Managers, • And Other Assistants Posts
+                <br />
+                (e.g. Salary &gt;= 20000/- &amp; &lt;40000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category-III
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.TechCat3, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the following posts in this category:<br />
+                • Senior Clerk, • Accountant, • Computer Operator, • Subject Matter Specialist,
+                • Teachers, • Paramatical Staff, • And Other Assistants Posts<br />
+                (e.g. Salary &gt;= 10000/- &amp; &lt;20000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category-IV
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.TechCat4, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the following posts in this category:<br />
+                • Lab Attendant, • Junior Clerk, • And Other Trained Personals IV Class Jobs<br />
+                (e.g. Salary < 10000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="font-size: large; font-weight: bold;" bgcolor="#999999">NON-TECHNICAL JOB CATEGORY</td>
+        </tr>
+        <tr>
+            <td>
+                Category-I
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.NonTechCat1, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the Senior &amp; Retired Persons in this category:<br />
+                (e.g. Salary &gt;= 40000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category-II
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.NonTechCat2, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for Managerial &amp; Sernior posts in this category:<br />
+                (e.g. Salary &gt;= 20000/- &amp; &lt;40000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category-III
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.NonTechCat3, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the following posts in this category:<br />
+                • Clerical Posts in Offices, • Marketing &amp; Field Executives<br /> (e.g. Salary &gt;= 10000/- &amp; &lt;20000/- Per
+                Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category-IV
+            </td>
+            <td align="center">
+                @Html.EditorFor(model => model.NonTechCat4, new { htmlAttributes = new { @onchange = "calculateFee()" } })
+            </td>
+            <td style="color: #FF0000">
+                Jobs Available for the following posts in this category:<br />
+                • Peon, • Sweeper, • And Other IV Class Jobs<br />
+                (e.g. Salary < 10000/- Per Month)
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="font-size: large; font-weight: bold;" bgcolor="#999999">REGISTRATION FEE DETAILS</td>
+        </tr>
+        <tr>
+            <td style="font-size: normal; font-weight: bold;">Registration Fee:</td>
+            <td>
+                @Html.EditorFor(model => model.RegistrationFee, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="font-size: normal; font-weight: bold;">
+                Service Tax (@@ 14.50%):
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ServiceTax, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="font-size: normal; font-weight: bold;"><b>Total Registration Amount:</b></td>
+            <td>
+                @Html.EditorFor(model => model.Total, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+
+            </td>
+            <td>
+                <p style="font-weight:700;color:green;">
+                    * कुल रजिस्ट्रेशन धनराशि पर बैंक चार्जेस बैंक के नियमानुसार अतिरिक्त देय होगा।
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" colspan="3">
+                <input type="button" id="BtnSubmit" value="Proceed To Payment......" onclick="proceedToPayment()" style="width:200px;" font-bold="True" />
+            </td>
+        </tr>
+    </table>
+}
+@section Scripts{
+    <script type="text/javascript">
+
+        function calculateFee() {
+            console.debug('calculateFee');
+            $(document.forms)[0].submit();
+        }
+
+        function proceedToPayment() {
+            var form = $(document.forms)[0];
+            form.attributes["action"].value = "@Url.Action("ProceedToPayment","Registration")";
+            form.submit();
+        }
+
+    </script>
+}

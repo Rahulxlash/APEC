@@ -1,8 +1,454 @@
-﻿
+﻿@model APEC.DOMAIN.Models.Registration
+
 @{
-    ViewBag.Title = "NewRegisration";
+    ViewBag.Title = "NewRegistration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>NewRegisration</h2>
+<p style="font-size: 24px;font-weight: 600;text-align: center;margin-top: 25px;">Registration Form</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
+    <div class="form-horizontal registration row" style="margin:50px;">
+        <div class="tabs-section col-md-12 " id="dataTab">
+            @Html.ValidationSummary(false, "Given information is invalid. Please provide correct information.", new { @class = "text-danger" })
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab-4" data-toggle="tab" aria-expanded="true"><i class="fa fa-leaf"></i>Post Information</a></li>
+                <li class=""><a href="#tab-1" data-toggle="tab" aria-expanded="false"><i class="fa fa-desktop"></i>Personal Information</a></li>
+                <li class=""><a href="#tab-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-leaf"></i>Education</a></li>
+                <li class=""><a href="#tab-3" data-toggle="tab" aria-expanded="false"><i class="fa fa-rocket"></i>Job Experience</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="tab-4" style="height:320px;">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PostId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("PostId", null, htmlAttributes: new { style = "width: 250px;height: 25px;" })
+                            @Html.ValidationMessageFor(model => model.PostId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DistrictId1, "District 1", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("DistrictId1", null, htmlAttributes: new { style = "width: 250px;height: 25px;" })
+                            @Html.ValidationMessageFor(model => model.DistrictId1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DistrictId2, "District 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("DistrictId2", null, htmlAttributes: new { style = "width: 250px;height: 25px;" })
+                            @Html.ValidationMessageFor(model => model.DistrictId2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DistrictId3, "District 3", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("DistrictId3", null, htmlAttributes: new { style = "width: 250px;height: 25px;" })
+                            @Html.ValidationMessageFor(model => model.DistrictId3, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DistrictId4, "District 4", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("DistrictId4", null, htmlAttributes: new { style = "width: 250px;height: 25px;" })
+                            @Html.ValidationMessageFor(model => model.DistrictId4, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DistrictId5, "District 5", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("DistrictId5", null, htmlAttributes: new { style = "width: 250px;height: 25px;" })
+                            @Html.ValidationMessageFor(model => model.DistrictId5, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" onclick="$('#dataTab a[href=\'#tab-1\' ]').tab('show');" value="Next" class="btn btn-default pull-right">
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab-1" style="height:320px;">
+                    <div class="col-md-12">
+                        <div class="col-md-6 No-padding">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = " ", maxLength = "2" } })
+                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = " ", maxLength = "100" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = " ", maxLength = "100" } })
+                                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Category, new List<SelectListItem>{
+                                    new SelectListItem { Value = "General" , Text = "General" },
+                                       new SelectListItem { Value = "SC" , Text = "SC" },
+                                       new SelectListItem { Value = "ST" , Text = "ST" },
+                                       new SelectListItem { Value = "OBC" , Text = "OBC" },
+                                })
+                                    @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Sex, new List<SelectListItem>{
+                                        new SelectListItem { Value = "Male" , Text = "Male" },
+                                        new SelectListItem { Value = "Female" , Text = "Female" },
+                                        })
+                                    @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Dob, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Dob, new { htmlAttributes = new { @class = " " } })
+                                    @Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 No-padding">
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = " ", maxLength = "500" } })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DistrictId, "District", htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("DistrictId", null, htmlAttributes: new { @class = " ", @onchange = "updateDistrict(this.value)" })
+                                    @Html.ValidationMessageFor(model => model.DistrictId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BlockId, "Block", htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("BlockId", null, htmlAttributes: new { @class = " " })
+                                    @Html.ValidationMessageFor(model => model.BlockId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Mobile1, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Mobile1, new { htmlAttributes = new { @class = " " } })
+                                    @Html.ValidationMessageFor(model => model.Mobile1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Mobile2, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Mobile2, new { htmlAttributes = new { @class = " " } })
+                                    @Html.ValidationMessageFor(model => model.Mobile2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = " " } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group pull-right">
+                                <input type="button" onclick="$('#dataTab a[href=\'#tab-4\' ]').tab('show');" value="Back" class="btn btn-default">
+                                <input type="button" onclick="$('#dataTab a[href=\'#tab-2\' ]').tab('show');" value="Next" class="btn btn-default">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab-2" style="height:320px;">
+                    <div class="col-md-12 form-inline">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="125px"><b>Degree</b></th>
+                                    <th width="180px"><b>Subject</b></th>
+                                    <th width="100px"><b>MM (पूर्णांक)</b></th>
+                                    <th width="100px"><b>MO (प्राप्तांक)</b></th>
+                                    <th width="100px"><b>Year</b></th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>
+                                    Class VIII
+                                </td>
+                                <td>
+                                    @Html.DropDownListFor(model => model.ViiiSubject, new List<SelectListItem>{
+                                    new SelectListItem { Value = "Arts" , Text = "Arts" },
+                                       new SelectListItem { Value = "Science" , Text = "Science" },
+                                       new SelectListItem { Value = "Commerce" , Text = "Commerce" },
+                                       new SelectListItem { Value = "Others" , Text = "Others" },
+                                       }, htmlAttributes: new { style = "width:180px;" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.ViiiMm, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.ViiiMo, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.ViiiYear, new { htmlAttributes = new { style = "width:100px;" } })
+                                    @Html.ValidationMessageFor(model => model.ViiiMo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    High School
+                                </td>
+                                <td>
+                                    @Html.DropDownListFor(model => model.HsSubject, new List<SelectListItem>{
+                                    new SelectListItem { Value = "Arts" , Text = "Arts" },
+                                       new SelectListItem { Value = "Science" , Text = "Science" },
+                                       new SelectListItem { Value = "Commerce" , Text = "Commerce" },
+                                       new SelectListItem { Value = "Others" , Text = "Others" },
+                                       }, htmlAttributes: new { style = "width:180px;" })
+                                    @Html.ValidationMessageFor(model => model.HsSubject, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.Hsmm, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.Hsmo, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.Hsyear, new { htmlAttributes = new { style = "width:100px;" } })
+                                    @Html.ValidationMessageFor(model => model.Hsmo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Intermediate
+                                </td>
+                                <td>
+                                    @Html.DropDownListFor(model => model.ImSubject, new List<SelectListItem>{
+                                    new SelectListItem { Value = "Arts" , Text = "Arts" },
+                                       new SelectListItem { Value = "Science" , Text = "Science" },
+                                       new SelectListItem { Value = "Commerce" , Text = "Commerce" },
+                                       new SelectListItem { Value = "Others" , Text = "Others" },
+                                       }, htmlAttributes: new { style = "width:180px;" })
+                                    @Html.ValidationMessageFor(model => model.ImSubject, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.Immm, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.Immo, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.ImYear, new { htmlAttributes = new { style = "width:100px;" } })
+                                    @Html.ValidationMessageFor(model => model.Immo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DropDownListFor(model => model.Gr, new List<SelectListItem>{
+                                    new SelectListItem { Value = "BA" , Text = "BA" },
+                                       new SelectListItem { Value = "BSc" , Text = "BSc" },
+                                       new SelectListItem { Value = "BCom" , Text = "BCom" },
+                                       new SelectListItem { Value = "BCA" , Text = "BCA" },
+                                       new SelectListItem { Value = "BBA" , Text = "BBA" },
+                                       new SelectListItem { Value = "BPharma" , Text = "BPharma" },
+                                       new SelectListItem { Value = "BE" , Text = "BE" },
+                                       new SelectListItem { Value = "BTech" , Text = "BTech" },
+                                       new SelectListItem { Value = "Others" , Text = "Others" },
+                                       }, htmlAttributes: new { style = "width:180px;" })
+                                    @Html.ValidationMessageFor(model => model.Gr, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.GrSubject, new { htmlAttributes = new { style = "width:180px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.GrMm, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.GrMo, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.GrYear, new { htmlAttributes = new { style = "width:100px;" } })
+                                    @Html.ValidationMessageFor(model => model.GrMo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DropDownListFor(model => model.Pg, new List<SelectListItem>{
+                                    new SelectListItem { Value = "MA" , Text = "MA" },
+                                       new SelectListItem { Value = "MSc" , Text = "MSc" },
+                                       new SelectListItem { Value = "MCom" , Text = "MCom" },
+                                       new SelectListItem { Value = "MCA" , Text = "MCA" },
+                                       new SelectListItem { Value = "MCA" , Text = "MCA" },
+                                       new SelectListItem { Value = "MBA" , Text = "MBA" },
+                                       new SelectListItem { Value = "MPharma" , Text = "MPharma" },
+                                       new SelectListItem { Value = "ME" , Text = "ME" },
+                                       new SelectListItem { Value = "MTech" , Text = "MTech" },
+                                       new SelectListItem { Value = "Others" , Text = "Others" },
+                                       }, htmlAttributes: new { style = "width:180px;" })
+                                    @Html.ValidationMessageFor(model => model.Pg, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.PgSubject, new { htmlAttributes = new { style = "width:180px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.PgMm, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.PgMo, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.PgYear, new { htmlAttributes = new { style = "width:100px;" } })
+                                    @Html.ValidationMessageFor(model => model.PgMo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DropDownListFor(model => model.Other, new List<SelectListItem>{
+                                    new SelectListItem { Value = "O Level" , Text = "O Level" },
+                                       new SelectListItem { Value = "A Level" , Text = "A Level" },
+                                       new SelectListItem { Value = "B Level" , Text = "B Level" },
+                                       new SelectListItem { Value = "DCA" , Text = "DCA" },
+                                       new SelectListItem { Value = "ADCA" , Text = "ADCA" },
+                                       new SelectListItem { Value = "PGDCAA" , Text = "PGDCAA" },
+                                       new SelectListItem { Value = "Others" , Text = "Others" },
+                                       }, htmlAttributes: new { style = "width:180px;" })
+                                    @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.OtherSubject, new { htmlAttributes = new { style = "width:180px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.OtherMm, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.OtherMo, new { htmlAttributes = new { style = "width:100px;" } })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.OtherYear, new { htmlAttributes = new { style = "width:100px;" } })
+                                    @Html.ValidationMessageFor(model => model.OtherMo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="form-group pull-right">
+                        <input type="button" onclick="$('#dataTab a[href=\'#tab-1\' ]').tab('show');" value="Back" class="btn btn-default">
+                        <input type="button" onclick="$('#dataTab a[href=\'#tab-3\' ]').tab('show');" value="Next" class="btn btn-default">
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab-3" style="height:320px;">
+                    <div class="col-md-12 form-inline">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="180px"><b>Company Name</b></th>
+                                    <th width="180px"><b>Description of Post & Work</b></th>
+                                    <th width="100px"><b>Time Period</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpComp1, new { htmlAttributes = new { @class = " ", maxLength = "200" } })
+                                        @Html.ValidationMessageFor(model => model.ExpComp1, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpDetail1, new { htmlAttributes = new { @class = " ", maxLength = "200" } })
+                                        @Html.ValidationMessageFor(model => model.ExpDetail1, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpTime1, new { htmlAttributes = new { @class = " ", maxLength = "100" } })
+                                        @Html.ValidationMessageFor(model => model.ExpTime1, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpComp2, new { htmlAttributes = new { @class = " ", maxLength = "200" } })
+                                        @Html.ValidationMessageFor(model => model.ExpComp2, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpDetail2, new { htmlAttributes = new { @class = " ", maxLength = "200" } })
+                                        @Html.ValidationMessageFor(model => model.ExpDetail2, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpTime2, new { htmlAttributes = new { @class = " ", maxLength = "100" } })
+                                        @Html.ValidationMessageFor(model => model.ExpTime2, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpComp3, new { htmlAttributes = new { @class = " ", maxLength = "200" } })
+                                        @Html.ValidationMessageFor(model => model.ExpComp3, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpDetail3, new { htmlAttributes = new { @class = " ", maxLength = "200" } })
+                                        @Html.ValidationMessageFor(model => model.ExpDetail3, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.ExpTime3, new { htmlAttributes = new { @class = " ", maxLength = "100" } })
+                                        @Html.ValidationMessageFor(model => model.ExpTime3, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-group pull-right">
+                        <input type="button" onclick="$('#dataTab a[href=\'#tab-2\' ]').tab('show');" value="Back" class="btn btn-default">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+@section Scripts {
+    <script type="text/javascript">
+       
+        function updateDistrict(districtId) {
+            window.location.href = "?districtId=" + districtId;
+        }
+        $(document).ready(function(){
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            if(["districtId"] != null)
+                $('#dataTab a[href=\'#tab-1\' ]').tab('show');
+        });
+       
+    </script>
+}

@@ -8,37 +8,40 @@ using Microsoft.Practices.Unity.Mvc;
 
 namespace APEC
 {
-  public static class Bootstrapper
-  {
-    public static IUnityContainer Initialise()
+    public static class Bootstrapper
     {
-      var container = BuildUnityContainer();
+        public static IUnityContainer Initialise()
+        {
+            var container = BuildUnityContainer();
 
-      DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
-      return container;
+            return container;
+        }
+
+        private static IUnityContainer BuildUnityContainer()
+        {
+            var container = new UnityContainer();
+            container.RegisterType<IUnitofWork, UnitofWork>(new PerRequestLifetimeManager());
+            container.RegisterType<IDatabaseFactory, DatabaseFactory>(new PerRequestLifetimeManager());
+            container.RegisterType<IDistrictRepository, DistrictRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IClientRepository, ClientRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IBlockRepository, BlockRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IJobRepository, JobRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IPostRepository, PostRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IRegistrationRepository, RegistrationRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IPaymentRepository, PaymentRepository>(new PerRequestLifetimeManager());
+
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
+            RegisterTypes(container);
+
+            return container;
+        }
+
+        public static void RegisterTypes(IUnityContainer container)
+        {
+
+        }
     }
-
-    private static IUnityContainer BuildUnityContainer()
-    {
-      var container = new UnityContainer();
-      container.RegisterType<IUnitofWork, UnitofWork>(new PerRequestLifetimeManager());
-      container.RegisterType<IDatabaseFactory, DatabaseFactory>(new PerRequestLifetimeManager());
-      container.RegisterType<IDistrictRepository, DistrictRepository>(new PerRequestLifetimeManager());
-      container.RegisterType<IClientRepository, ClientRepository>(new PerRequestLifetimeManager());
-      container.RegisterType<IBlockRepository, BlockRepository>(new PerRequestLifetimeManager());
-      container.RegisterType<IJobRepository, JobRepository>();
-
-      container.RegisterType<AccountController>(new InjectionConstructor());
-      container.RegisterType<ManageController>(new InjectionConstructor());
-      RegisterTypes(container);
-
-      return container;
-    }
-
-    public static void RegisterTypes(IUnityContainer container)
-    {
-    
-    }
-  }
 }

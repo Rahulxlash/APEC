@@ -1,0 +1,21 @@
+﻿@model APEC.DOMAIN.Models.Payment
+
+@{
+    ViewBag.Title = "PaymentSuccess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center;color: green;">Payment Successfull</h2>
+@Html.HiddenFor(model=>model.ApplicationNumber)
+<p style="padding:50px;">
+    रजिस्ट्रेशन करने के लिए धन्यवाद!
+    <br> 1. आपका रजिस्ट्रेशन हमारी वेबसाइट पर सफलता पूर्वक हो गया है।
+    <br> 2. किसी भी असुविधा की दशा में आप हमारे टॉल फ्री न० 9452667888 (10:00 AM to 6:00 PM) पर कॉल कर सकते हैं।
+    <br> 3. आपकी योग्यता के अनुसार जो भी रिक्तियां हमारी कम्पनी के पास आएगी उसके लिए आपको आपके रजिस्टर्ड मोबाइल न० पर SMS के द्वारा सूचित किया जायेगा।
+    <br> 4. आपसे लिया जाने वाला रजिस्ट्रेशन शुल्क इस बात की गारंटी नहीं होगा कि आपको आवेदन करने के पश्चात रोजगार मिल ही जायेगा।  रजिस्ट्रेशन शुल्क केवल आवेदन के प्रक्रियागत खर्चों को पूर्ण करने हेतु ही लिया जा रहा है।
+    <br /> 5. अब आप 'Click To Print Registration Form' बटन दबा कर अपना फॉर्म प्रिंट कर सकते हैं।
+
+</p>
+<div style="text-align:center;">
+    <input type="submit" value="Click To Print Registration Form" style="margin-bottom:50px;" />
+</div>
