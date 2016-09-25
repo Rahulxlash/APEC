@@ -1,0 +1,495 @@
+﻿@model APEC.Models.PrintModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PrintForm</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body style="padding:0px;">
+    <table cellpadding="5px" cellspacing="0px" class="styleMPTable" border="2">
+        <tr valign="top">
+            <td colspan="4">
+                <img alt="" src="../../Images/Head1.jpg" /><br />
+                <div style="display:inline-flex;width:100%">
+                    <div style="width:35%;font-weight: 600;font-size: 17px;">
+                        उ० प्र० लघु उद्योग निगम लिमिटेड
+                    </div>
+                    <div style="width:55%;text-align:center;color: red;font-size: 16px;">
+                        16/34, Fawn Break Avenue, Sarojani Naidu Marg, Near-Honda Hospital
+                    </div>
+                </div>
+                <div style="display:inline-flex;width:100%;">
+                    <div style="width:35%;">
+                        (उ० प्र० सरकार का उपक्रम)
+                    </div>
+                    <div style="width:55%;text-align:center;color: red;font-size: 16px;">
+                        Lucknow. (UP). HelpLine No: +91-9452667888, Email:info@avaniparidhi.com
+                    </div>
+                </div>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" bgcolor="#CCFFCC">
+                <br />
+                <span style="font-size: Medium;font-weight: bold;text-decoration: underline;">APPLICATION FORM - RECEIPT</span>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="left" width="150px">
+                Application No:
+            </td>
+            <td align="left" width="250px">
+                @Model.ApplicationNumber
+            </td>
+            <td align="left" width="150px">Registration Date:</td>
+            <td align="center" width="250px">
+                @Model.RegDate.ToShortDateString()
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Applied for Post:
+            </td>
+            <td align="left" colspan="2">
+                @Model.Post
+            </td>
+            <td align="center" rowspan="5">
+                <br /><br /><br />Paste <br />Passpost Size <br />Photo
+            </td>
+        </tr>
+        <tr><td colspan="3"> &nbsp;</td></tr>
+        <tr>
+            <td align="left">
+                Name:
+            </td>
+            <td align="left" colspan="2">
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Father's Name:
+            </td>
+            <td align="left" colspan="2">
+                @Model.FatherName
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Address:
+            </td>
+            <td align="left" colspan="2">
+                @Model.Address
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Date of Birth:
+            </td>
+            <td align="left">
+                @Model.Dob
+            </td>
+            <td align="left">
+                Category:
+            </td>
+            <td align="left">
+                @Model.Category
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Block:
+            </td>
+            <td align="left">
+                @Model.Block
+            </td>
+            <td align="left">
+                Sex:
+            </td>
+            <td align="left">
+                @Model.Sex
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                District:
+            </td>
+            <td align="left">
+                @Model.District
+            </td>
+            <td align="left">
+                Email:
+            </td>
+            <td align="left">
+                @Model.Email
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Mobile No1:
+            </td>
+            <td align="left">
+                1.
+                @Model.MobileNo
+            </td>
+            <td align="left">
+                Mobile No2:
+            </td>
+            <td align="left">
+                2.
+                @Model.Mobile2
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                Applied for District:
+            </td>
+            <td align="left" colspan="3">
+                <table>
+                    <tr>
+                        <td width="150px">
+                            1. @Model.District1
+                        </td>
+                        <td width="150px">
+                            2. @Model.District2
+                        </td>
+                        <td width="150px">
+                            3. @Model.District3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150px">
+                            4. @Model.District4
+                        </td>
+                        <td width="150px" colspan="2">
+                            5. @Model.District5
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" bgcolor="#CCFFCC">
+                <span style="font-size: small;font-weight: bold;text-decoration: underline;">EDUCATIONAL QUALIFICATION</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="4">
+                <table width="100%" border="1" cellpadding="3">
+                    <tr>
+                        <td width="200px">
+                            <span style="font-weight:600;">Degree</span>
+                        </td>
+                        <td width="200px">
+                            <span style="font-weight:600;">Subject</span>
+                        </td>
+                        <td width="100px">
+                            <span style="font-weight:600;">MM (पूर्णांक)</span>
+                        </td>
+                        <td width="100px">
+                            <span style="font-weight:600;">MO (प्राप्तांक)</span>
+                        </td>
+                        <td width="100px">
+                            <span style="font-weight:600;">% (प्रतिशत)</span>
+                        </td>
+                        <td width="100px">
+                            <span style="font-weight:600;">Year</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Class VIII</span>
+                        </td>
+                        <td>
+                            @Model.ViiiSubject
+                        </td>
+                        <td>
+                            @Model.ViiiMm
+                        </td>
+                        <td>
+                            @Model.ViiiMo
+                        </td>
+                        <td>
+                            @Model.ViiiPer
+                        </td>
+                        <td>
+                            @Model.ViiiYear
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>High School</span>
+                        </td>
+                        <td>
+                            @Model.HsSubject
+                        </td>
+                        <td>
+                            @Model.Hsmm
+                        </td>
+                        <td>
+                            @Model.Hsmo
+                        </td>
+                        <td>
+                            @Model.Hsper
+                        </td>
+                        <td>
+                            @Model.Hsyear
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Intermediate</span>
+                        </td>
+                        <td>
+                            @Model.ImSubject
+                        </td>
+                        <td>
+                            @Model.Immm
+                        </td>
+                        <td>
+                            @Model.Immo
+                        </td>
+                        <td>
+                            @Model.ImPer
+                        </td>
+                        <td>
+                            @Model.ImYear
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Model.Gr
+                        </td>
+                        <td>
+                            @Model.GrSubject
+                        </td>
+                        <td>
+                            @Model.GrMm
+                        </td>
+                        <td>
+                            @Model.GrMo
+                        </td>
+                        <td>
+                            @Model.GrPer
+                        </td>
+                        <td>
+                            @Model.GrYear
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Model.Pg
+                        </td>
+                        <td>
+                            @Model.PgSubject
+                        </td>
+                        <td>
+                            @Model.PgMm
+                        </td>
+                        <td>
+                            @Model.PgMo
+                        </td>
+                        <td>
+                            @Model.PgPer
+                        </td>
+                        <td>
+                            @Model.PgYear
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Model.Other
+                        </td>
+                        <td>
+                            @Model.OtherSubject
+                        </td>
+                        <td>
+                            @Model.OtherMm 
+                        </td>
+                        <td>
+                            @Model.OtherMo
+                        </td>
+                        <td>
+                            @Model.OtherPer
+                        </td>
+                        <td>
+                            @Model.OtherYear
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" bgcolor="#CCFFCC">
+                <span style="font-size: small;font-weight: bold;text-decoration: underline;">EXPERIENCE SUMMARY</span>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="4">
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="200px">
+                            COMPANY NAME
+                        </td>
+                        <td width="400px">
+                            DESCRIPTION OF WORK
+                        </td>
+                        <td width="200px">
+                           TIME PERIOD
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Model.ExpComp1
+                        </td>
+                        <td>
+                            @Model.ExpDetail1
+                        </td>
+                        <td>
+                            @Model.ExpTime1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Model.ExpComp2
+                        </td>
+                        <td>
+                            @Model.ExpDetail2
+                        </td>
+                        <td>
+                            @Model.ExpTime2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Model.ExpComp3
+                        </td>
+                        <td>
+                            @Model.ExpDetail3
+                        </td>
+                        <td>
+                            @Model.ExpTime3
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" bgcolor="#CCFFCC">
+                <span style="font-size: small; font-weight: bold; text-decoration: underline;">JOB CATEGORY</span>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4">
+                <table width="80%" border="1">
+                    <tr>
+                        <td width="200px">
+                            Technical Category
+                        </td>
+                        <td width="200px">
+                            Non-Technical Category
+                        </td>
+                        <td width="200px">
+                            Payment Details
+                        </td>
+                        <td width="100px">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category 1:  @Model.TechCat1
+                        </td>
+                        <td>
+                            Category 1: @Model.NonTechCat1
+                        </td>
+                        <td>
+                            <asp:Label ID="Label20" runat="server" Font-Size="Small">Reference Number:</asp:Label>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblRef" runat="server" Font-Size="Small" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category 2: @Model.TechCat2
+                        </td>
+                        <td>
+                            Category 2: @Model.NonTechCat2
+                        </td>
+                        <td>
+                            <asp:Label ID="Label18" runat="server" Font-Size="Small">Amount:</asp:Label>
+                        </td>
+                        <td>
+                            @Model.AmountReceived
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category 3: @Model.TechCat3
+                        </td>
+                        <td>
+                            Category 3: @Model.NonTechCat3
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category 4: @Model.TechCat4
+                        </td>
+                        <td>
+                            Category 4: @Model.NonTechCat4
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="4">
+                <asp:Label ID="Label36" runat="server" Font-Bold="True" Font-Size="Small"
+                           Font-Underline="True" Text="महत्वपूर्ण उदघोषणा:-"></asp:Label>
+                &nbsp;&nbsp;&nbsp;यूपीएसआईसी अपने समस्त इम्पैनल्ड वेन्डर के माध्यम से मैनपावर चयन हेतु लिये जाने
+                वाले आवेदन पत्र के सम्बन्ध में यह स्पष्ट करना चाहता है कि आवेदक द्वारा आवेदन के
+                सापेक्ष दिया जा रहा रजिस्ट्रेशन शुल्क इस बात की गारंटी नहीं होगा कि आवेदक को आवेदन
+                करने के पश्चात रोजगार मिल ही जायेगा। विभिन्न विभागों से प्राप्त रोजगार की उपलब्धता के सापेक्ष मेरिट में चयन
+                के पश्चात ही रोजगार मिलने की सम्भावना है। रजिस्ट्रेशन शुल्क केवल आवेदन के
+                प्रक्रियागत खर्चों को पूर्ण करने हेतु ही लिया जा रहा है।<br />
+                <asp:Label ID="Label35" runat="server" Font-Bold="True" Font-Size="Small"
+                           Font-Underline="True" Text="शपथ पत्र "></asp:Label>
+                <br />
+                १.&nbsp; मेरे द्वारा दी गयी उपरोक्त सभी सूचनाएँ सत्य एवं सही है।
+                <br />
+                २. यदि उपरोक्त में से कोई भी सूचना गलत या असत्य पायी जाती है तो कम्पनी को अधिकार
+                होगा कि मेरा आवेदन किसी भी वक़्त समाप्त कर दे।
+                <br />
+                <br />
+                <br />
+                <br />
+                Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Signature of Candidate
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
