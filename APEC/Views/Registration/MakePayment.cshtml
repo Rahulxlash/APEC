@@ -26,38 +26,54 @@
         <tr>
             <td width="200px" style="font-size: large; font-weight: bold;">Registration No:</td>
             <td>
-                @Html.EditorFor(model => model.ApplicationNumber, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @if (Model.ApplicationNumber != null)
+                {
+                    @Html.EditorFor(model => model.ApplicationNumber, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
+                }
+                else
+                {
+                    @Html.EditorFor(model => model.ApplicationNumber, new { htmlAttributes = new { style = "width:250px;" } })
+                }
 
             </td>
             <td>
-                <asp:label id="Label69" font-bold="True" font-size="Medium" forecolor="Green" text="कृपया अपना रजिस्ट्रेशन न0 भविष्य की सारी कार्यवाही हेतु नोट कर लें।"></asp:label>
+                @if (Model.ApplicationNumber != null)
+                {
+                    <p style="color:green;">कृपया अपना रजिस्ट्रेशन न0 भविष्य की सारी कार्यवाही हेतु नोट कर लें।</p>
+                }
+                else
+                {
+                    <p style="color:green;">कृपया अपना रजिस्ट्रेशन न0 इंटर करें।</p>
+                    <input type="submit" value="Get Detail" />
+                }
+
             </td>
         </tr>
         <tr>
             <td width="200px" style="font-size: large; font-weight: bold;">Name:</td>
             <td>
-                @Html.EditorFor(model => model.Name, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
             </td>
             <td></td>
         </tr>
         <tr>
             <td width="200px" style="font-size: large; font-weight: bold;">Email:</td>
             <td>
-                @Html.EditorFor(model => model.Email, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
             </td>
             <td></td>
         </tr>
         <tr>
             <td width="200px" style="font-size: large; font-weight: bold;">Mobile:</td>
             <td>
-                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
             </td>
             <td></td>
         </tr>
         <tr>
             <td width="200px" style="font-size: large; font-weight: bold;">Caste Category:</td>
             <td class="style10">
-                @Html.EditorFor(model => model.Category, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.Category, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
             </td>
             <td align="right">
                 @*<asp:TextBox ID="TxtRegCount"   Enabled="False" Font-Bold="True" Font-Size="Medium" ForeColor="#0066FF" MaxLength="50" Width="200px" Height="30px" />*@
@@ -191,7 +207,7 @@
         <tr>
             <td style="font-size: normal; font-weight: bold;">Registration Fee:</td>
             <td>
-                @Html.EditorFor(model => model.RegistrationFee, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.RegistrationFee, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
             </td>
             <td></td>
         </tr>
@@ -200,7 +216,7 @@
                 Service Tax (@@ 14.50%):
             </td>
             <td>
-                @Html.EditorFor(model => model.ServiceTax, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.ServiceTax, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
 
             </td>
             <td></td>
@@ -208,7 +224,7 @@
         <tr>
             <td style="font-size: normal; font-weight: bold;"><b>Total Registration Amount:</b></td>
             <td>
-                @Html.EditorFor(model => model.Total, new { disabled = "disabled", htmlAttributes = new { style = "width:250px;" } })
+                @Html.EditorFor(model => model.Total, new { htmlAttributes = new { style = "width:250px;", @readOnly = "true" } })
 
             </td>
             <td>
@@ -219,7 +235,10 @@
         </tr>
         <tr>
             <td align="right" colspan="3">
-                <input type="button" id="BtnSubmit" value="Proceed To Payment......" onclick="proceedToPayment()" style="width:200px;" font-bold="True" />
+                @if (Model.ApplicationNumber != null)
+                {
+                    <input type="button" id="BtnSubmit" value="Proceed To Payment......" onclick="proceedToPayment()" style="width:200px;" font-bold="True" />
+                }
             </td>
         </tr>
     </table>

@@ -219,6 +219,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PrintModel.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />
     <Compile Include="Models\VacanciesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -286,6 +287,7 @@
     <Content Include="images\flickr-08.jpg" />
     <Content Include="images\flickr-09.jpg" />
     <Content Include="images\footer-margo.png" />
+    <Content Include="images\Head1.jpg" />
     <Content Include="images\home %281%29.jpg" />
     <Content Include="images\Logo.jpg" />
     <Content Include="images\map.png" />
@@ -534,11 +536,12 @@
     <Content Include="Views\Home\Jobs.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Registration\NewRegistration.cshtml" />
-    <Content Include="Views\Registration\rePrintForm.cshtml" />
     <Content Include="Views\Registration\MakePayment.cshtml" />
     <Content Include="Views\Registration\ProceedToPayment.cshtml" />
     <Content Include="Views\Registration\PaymentSuccess.cshtml" />
     <Content Include="Views\Registration\PaymentFailed.cshtml" />
+    <Content Include="Views\Registration\PrintForm.cshtml" />
+    <Content Include="Views\Registration\RePrintForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

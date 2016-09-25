@@ -21,5 +21,8 @@ namespace APEC.DOMAIN
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<Registration> Registrations { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+
+        //public System.Data.Entity.DbSet<APEC.Models.RegistrationViewModel> RegistrationViewModels { get; set; }
     }
 }

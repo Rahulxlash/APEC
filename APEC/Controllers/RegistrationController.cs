@@ -50,7 +50,7 @@ namespace APEC.Controllers
 
             var _blocks = _blockRepository.GetAll();
             if (districtId == 0)
-                ViewBag.BlockId = new SelectList(null, "BlockId", "Name");
+                ViewBag.BlockId = new SelectList(_blocks, "BlockId", "Name");
             else
                 ViewBag.BlockId = new SelectList(_blocks.Where(b => b.DistrictId == districtId), "BlockId", "Name");
 
@@ -213,19 +213,71 @@ namespace APEC.Controllers
             return View();
 
         }
+
+        [HttpGet]
+        public ActionResult RePrintForm()
+        {
+            ViewBag.Error = "";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RePrintForm(FormCollection collection)
+        {
+            RegistrationViewModel obj = new RegistrationViewModel();
+            TryUpdateModel(obj);
+
+            if (obj.ApplicationNumber != null)
+            {
+                var model = _registrationRepository.GetMany(r => r.ApplicationNumber.ToLower() == obj.ApplicationNumber.ToLower() && r.Mobile1 == obj.MobileNo).FirstOrDefault();
+                if (model == null)
+                {
+                    ViewBag.Error = "Invalid values provided. Please check and re-enter.";
+                    return View();
+                }
+                else
+                {
+                    var payment = _paymentRepository.GetMany(p => p.ApplicationNumber == obj.ApplicationNumber).FirstOrDefault();
+                    if (payment == null)
+                    {
+                        ViewBag.Error = "Payment not received for this Application.";
+                        return View();
+                    }
+                    else
+                    {
+                        return RedirectToAction("printForm", new { ApplicationNumber = obj.ApplicationNumber });
+                    }
+                }
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         [HttpGet]
         public ActionResult MakePayment(string applicationNumber)
         {
-            var obj = _registrationRepository.GetMany(p => p.ApplicationNumber == applicationNumber).FirstOrDefault();
-            var model = new RegistrationViewModel
+            if (applicationNumber != "" && applicationNumber != null)
             {
-                ApplicationNumber = obj.ApplicationNumber,
-                Name = obj.Name,
-                Email = obj.Email,
-                MobileNo = obj.Mobile1,
-                Category = obj.Category,
-            };
-            return View(model);
+                var obj = _registrationRepository.GetMany(p => p.ApplicationNumber == applicationNumber).FirstOrDefault();
+                var model = new RegistrationViewModel
+                {
+                    ApplicationNumber = obj.ApplicationNumber,
+                    Name = obj.Name,
+                    Email = obj.Email,
+                    MobileNo = obj.Mobile1,
+                    Category = obj.Category,
+                };
+                return View(model);
+            }
+            else
+            {
+                var model = new RegistrationViewModel();
+                return View(model);
+            }
+
         }
 
         [HttpPost]
@@ -233,8 +285,13 @@ namespace APEC.Controllers
         {
             RegistrationViewModel model = new RegistrationViewModel();
             TryUpdateModel(model);
+            
             ModelState.Clear();
             var obj = _registrationRepository.GetMany(p => p.ApplicationNumber == applicationNumber).FirstOrDefault();
+            if (obj == null)
+            {
+                return View(new RegistrationViewModel());
+            }
             model.ApplicationNumber = obj.ApplicationNumber;
             model.Name = obj.Name;
             model.Email = obj.Email;
@@ -277,10 +334,93 @@ namespace APEC.Controllers
 
             return View(obj);
         }
-        [HttpPost]
-        public ActionResult PrintForm()
+        [HttpGet]
+        public ActionResult PrintForm(string ApplicationNumber)
         {
-            return View();
+            var model = _registrationRepository.GetMany(r=>r.ApplicationNumber == ApplicationNumber).FirstOrDefault();
+            var payment = _paymentRepository.GetMany(r => r.ApplicationNumber == ApplicationNumber).FirstOrDefault();
+
+
+            PrintModel obj = new PrintModel(){
+                ApplicationNumber = model.ApplicationNumber,
+                Name  = model.Name,
+                Email = model.Email,
+                MobileNo = model.Mobile1,
+                Category = model.Category,
+                District1 = _districtRepository.GetByID(model.DistrictId1.Value).Name,
+                District2 = _districtRepository.GetByID(model.DistrictId2.Value).Name,
+                District3 = _districtRepository.GetByID(model.DistrictId3.Value).Name,
+                District4 = _districtRepository.GetByID(model.DistrictId4.Value).Name,
+                District5 = _districtRepository.GetByID(model.DistrictId5.Value).Name,
+                FatherName  = model.FatherName,
+                Sex = model.Sex,
+                Dob = model.Dob,
+                Address = model.Address,
+                District = _districtRepository.GetByID(model.DistrictId.Value).Name,
+                Block = _blockRepository.GetByID(model.BlockId.Value).Name,
+                Mobile2 = model.Mobile2,
+                Viii = model.Viii,
+                ViiiSubject = model.ViiiSubject,
+                ViiiMm = model.ViiiMm,
+                ViiiMo = model.ViiiMo,
+                ViiiPer = model.ViiiPer,
+                ViiiYear = model.ViiiYear,
+                Hs = model.Hs,
+                HsSubject = model.HsSubject,
+                Hsmm  = model.Hsmm,
+                Hsmo = model.Hsmo,
+                Hsper = model.Hsper,
+                Hsyear = model.Hsyear,
+                Im = model.Im,
+                ImSubject = model.ImSubject,
+                Immm = model.Immm,
+                Immo = model.Immo,
+                ImPer = model.ImPer,
+                ImYear = model.ImYear,
+                Gr = model.Gr,
+                GrSubject = model.GrSubject,
+                GrMm = model.GrMm,
+                GrMo  = model.GrMo,
+                GrPer = model.GrPer,
+                GrYear = model.GrYear,
+                Pg= model.Pg,
+                PgSubject = model.PgSubject,
+                PgMm = model.PgMm,
+                PgMo  = model.PgMo,
+                PgPer = model.PgPer,
+                PgYear = model.PgYear,
+                Other = model.Other,
+                OtherSubject = model.OtherSubject,
+                OtherMm = model.OtherMm,
+                OtherMo = model.OtherMo,
+                OtherPer = model.OtherPer,
+                OtherYear = model.OtherYear,
+                ExpComp1  = model.ExpComp1,
+                ExpDetail1 = model.ExpDetail1,
+                ExpTime1   = model.ExpTime1,
+                ExpComp2  =model.ExpComp2,
+                ExpDetail2 = model.ExpDetail2,
+                ExpTime2  =model.ExpTime2,
+                ExpComp3  = model.ExpComp3,
+                ExpDetail3 = model.ExpDetail3,
+                ExpTime3  = model.ExpTime3,
+                TechCat1 = (payment.TechCat1?"YES":"NO"),
+                TechCat2 = (payment.TechCat2 ? "YES" : "NO"),
+                TechCat3 = (payment.TechCat3 ? "YES" : "NO"),
+                TechCat4 = (payment.TechCat4 ? "YES" : "NO"),
+                NonTechCat1 = (payment.NonTechCat1 ? "YES" : "NO"),
+                NonTechCat2 = (payment.NonTechCat2 ? "YES" : "NO"),
+                NonTechCat3 = (payment.NonTechCat3 ? "YES" : "NO"),
+                NonTechCat4 = (payment.NonTechCat4 ? "YES" : "NO"),
+                RegistrationFee = payment.RegistrationFee,
+                ServiceTax = payment.ServiceTax,
+                Total = payment.Total,
+                AmountReceived = payment.AmountReceived,
+                ReferenceNumber = payment.ReferenceNumber,
+                Post = _postRepository.GetByID(model.PostId).Name
+            };
+            
+            return View(obj);
         }
 
         public RegistrationViewModel CalculateRegistrationFees(RegistrationViewModel model)
@@ -646,7 +786,7 @@ namespace APEC.Controllers
             //(The order is important, Form then JavaScript)
             return strForm.ToString() + strScript.ToString();
         }
-        
+
         public ActionResult PaymentSuccess(FormCollection collection)
         {
 

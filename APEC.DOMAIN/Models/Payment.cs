@@ -10,7 +10,7 @@ namespace APEC.DOMAIN.Models
 {
     public class Payment
     {
-        [Key, Column("Apllication Number")]
+        [Key, Column("Application Number")]
         public string ApplicationNumber { get; set; }
 
         public string  Name { get; set; }

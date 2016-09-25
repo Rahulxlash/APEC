@@ -6,7 +6,6 @@
 }
 
 <h2 style="text-align: center;color: green;">Payment Successfull</h2>
-@Html.HiddenFor(model=>model.ApplicationNumber)
 <p style="padding:50px;">
     रजिस्ट्रेशन करने के लिए धन्यवाद!
     <br> 1. आपका रजिस्ट्रेशन हमारी वेबसाइट पर सफलता पूर्वक हो गया है।
@@ -17,5 +16,9 @@
 
 </p>
 <div style="text-align:center;">
-    <input type="submit" value="Click To Print Registration Form" style="margin-bottom:50px;" />
+    @using (Html.BeginForm("PrintForm", "Registration"))
+    {
+        @Html.HiddenFor(model => model.ApplicationNumber)
+        <input type="submit" value="Click To Print Registration Form" style="margin-bottom:50px;" />
+    }
 </div>
